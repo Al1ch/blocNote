@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Note from "./components/Note";
 import CreateArea from "./components/CreateArea";
+import { ThemeProvider } from "@emotion/react";
+import theme from "./theme"
 
 function App() {
   const [tab, setTab] = useState([]);
@@ -26,7 +28,7 @@ function App() {
   }
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Header />
       <CreateArea AddTab={AddTab} />
       {tab.map((Noteread, index) => {
@@ -41,7 +43,7 @@ function App() {
         );
       })}
       <Footer />
-    </div>
+    </ThemeProvider>
   );
 }
 
